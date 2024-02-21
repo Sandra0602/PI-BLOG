@@ -1,14 +1,109 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400;500;600;700;800&display=swap');
+
+*{
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
 }
+
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+
 .container {
-    text-align: center;
-    max-width: 800px; /* Cambia este valor según tus preferencias */
-    width: 100%;
-    padding: 0 20px;
+           max-width: 1200px;
+           margin: 0 auto;
 }
+
+
+.header {
+    background-image: linear-gradient(
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.7)),
+        url(img/bg.jpeg);
+
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 70vh;  
+        display: flex;
+        align-items: center;
+    }
+
+
+    .menu {
+        position:absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        color: #fffdfc;
+        font-size: 25px;
+        font-weight: 800;
+    }
+
+    .menu .navbar ul li {
+        position: relative;
+        float: left;
+    }
+
+    .menu .navbar ul li {
+               font-size: 18px;
+               padding: 20px;
+               color: #fffdfc;
+               display: block;
+               font-weight: 600;
+    }
+
+    .menu .navbar ul li a:hover{
+        color: #ce9678;
+    }
+
+   #menu {
+     display: none;
+   }
+
+   .menu-icono {
+       width: 25px;
+   }
+
+   .menu label {
+      cursor: pointer;
+      display: block;
+   }
+
+
+   .header-content {
+      text-align: center;
+    }
+
+    .header-content h1 {
+        font-size: 75px;
+        line-height: 80px;
+        color: #f9fafc;
+        text-transform: uppercase;
+        margin-bottom: 35px;
+    }
+
+    .header-content p {
+        font-size: 16px;
+        color: #c5c5c5;
+        padding: 0 250px;
+        margin-bottom: 25px;
+    }
+
+
+
+
+
+

@@ -1,30 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   <!--Esto te lo da por automatico el programa html, pero es la iniliziacion-->
+    <title>Document</title>  
+    <link rel="stylesheet" href="style.css">  <!--href la creacion de enlaces-->
 </head>
 <body>
-    <div class="container">
-        <header>
+    
+   <header class="header" >  <!--creamos una clase-->
+         <div class="menu container">
+           <a href="a" class="logo" >Logo</a> <!--, para especificar la URL de destino a la que el usuario será dirigido al hacer clic en el enlace.-->
+           <input type="checkbox" id="menu" /> <!--En el elemento <input>: Se utiliza para especificar el tipo de entrada que el elemento <input> representa. Por ejemplo, puede ser "text", "number", "email", "password"-->
+           <label for="menu">
+              <!-- <img src="img/igualdad.jpeg" class="menu-icono" alt=""> -->
+
+                <nav class="navbar"> <!--para definir una sección de navegación en un documento web-->
+                    <ul>
+                        <li><a href="#">Inicio</a></li> <!--href="#" en este caso indica que los enlaces no apuntan a ninguna página específica-->
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </nav>
+           </label> 
+         </div>
+
+         <div class="header-content container"> 
             <h1>Igualdad de Genero</h1>
-        </header>
-        <div>
-            <p>Parrafo dentro de un div</p>
+
+            <p>  <!--Texto-->
+                A escala mundial, lograr la igualdad de género también requiere la eliminación de prácticas dañinas contra las mujeres y las niñas, que incluyen el tráfico sexual, el feminicidio, la violencia sexual durante la guerra entre otras prácticas de violencia contra la mujer.
+            </p>
+
+            <a href="#" class="btn-1"> Informacion </a>
+
+         </div> <!--div, envuelve tanto el párrafo como la lista de elementos-->
+    </header>
+
+<!--Nueva seccion-->
+
+    <section class="Genero">
+        <img  classs="Genero-img" src="img/tercera.jpeg"  alt=""> <!--Insertamos una imagen sin ancho, ni alto-->
+
+        <div class="Genero-content container">
+
+            <h2>Situacion de la mujer</h2>
+                <p class="txt-p"> <!--para definir un párrafo de texto.-->
+                    Existen 7 ámbitos de desigualdad donde la mujer se ve en desventaja debido a las condiciones sociales o las políticas públicas de los distintos países. 
+                </p>
+
+                <div class="genero-group"> 
+
+                    <div class="generos">
+                     <img src="img/gna.jpeg" alt="">
+                     <h3>Diferencia entre igualdad y equidad de género </h3> 
+                     <p>
+                        En este sentido, la equidad de género se encaminará principalmente a brindar oportunidades justas a todas las personas independientemente de su género, pero, a diferencia de la igualdad, será atendiendo principalmente a la idea de que mujeres, varones y otros géneros se encuentran en situaciones distintas, por lo que estas oportunidades serán de acuerdo a las características, contextos y necesidades específicas en donde se encuentren y que posean, desde los diversos ámbitos en los que interactúan, por ejemplo en el ámbito laboral, educativo, de la salud, el económico, cultural y social en general.
+                     </p>
+                </div>
+
+                <div class="generos"> 
+                    <img src="img/igdl.jpeg" alt="">
+                    <h3>Importancia de la igualdad de género en el desarrollo sostenible </h3> 
+                    <p>
+                        Las mujeres y las niñas representan la mitad de la población mundial y también, por tanto, la mitad de su potencial.
+                    </p>
+               </div>
+
+               <div class="generos"> 
+                <img src="img/igdl2.jpeg" alt="">
+                <h3>Importancia de la igualdad de género en el desarrollo sostenible </h3> 
+                <p>
+                    Las mujeres y las niñas representan la mitad de la población mundial y también, por tanto, la mitad de su potencial.
+                </p>
+           </div>
+         </div>
+
+           <a href="#" class="btn-1">Informacion</a>
         </div>
-        <section>
-            <article>
-                <h2>Titulo</h2>
-                <p>Descripcion del blog</p>
-                <img src="img/igualdad.jpeg" width="400" />
-                <p>Texto del blog</p>
-            </article>
+
+    </section>
+          <!--Solo se utiliza una vez el main-->
+        <main class="services">
+
+            <div class="services-content container">
+                <h2>Servicios de genero</h2>
+                            <!--Definimos lo es una clase dentro-->
+                <div class="servicios-group">
+
+                    <div class="services-blog">
+                         <img src="img/serv.jpeg" alt="">
+                         <h3>Servicio 1</h3>  
+                         </div>
+                    <div class="services-blog">
+                        <img src="img/serv.jpeg" alt="">
+                        <h3>Servicio 2</h3>  
+                         </div>
+                    <div class="services-blog">
+                        <img src="img/serv.jpeg" alt="">
+                        <h3>Servicio 3</h3>  
+                         </div>
+             </div>
+               <p>
+                La Organización de las Naciones Unidas también reconoce que el importante papel de las mujeres para el desarrollo.
+               </p>
+                <a href="#" class="btn-1"> Informacion</a>
+            </div>
+        </main>
+
+        <section class="general-blog">
+            <div class="general-blog1">
+                <h2>¿Cuáles son algunas formas en las que se manifiesta la violencia de género?</h2>
+                <p>
+                    Como la violencia doméstica, el acoso sexual, la trata de personas con fines de explotación sexual, el matrimonio forzado, entre otros.
+                </p>
+                <a href="#" class="btn-1"> Informacion</a>
+            </div>
+             <div class="general-blog2"> </div>
+        
         </section>
-        <footer>
-            <a href="mailto:sandritaa0206@gmail.com">sandritaa0206@gmail.com</a>
-            <p>Copyrigth 2024</p>
+
+        <div class="general-blog3"> </div>
+
+        <section class="general-blog">
+            <div class="general-blog1">
+                <h2>Que buscas?</h2>
+                <p>
+                    El derecho internacional prohíbe la discriminación basada en el sexo
+                </p>
+                <a href="#" class="btn-1"> Informacion</a>
+            </div>
+        </section>
+
+            <section class="blog container">
+
+                <h2>Blog</h2>
+                <p>Conseguir que exista igualdad de género no es una tarea imposible, pero requiere de la implicación de toda la ciudadanía. </p>
+
+                <div class="blog-content">
+                    <div class="blog-1">
+                        <img src="img/man.jpeg" alt="">
+                        <h3> Blog 1</h3>
+                        <p>
+                            Y si hablamos de igualdad? buscamos compartir ideas y soluciones para América Latina y el Caribe.
+                        </p>
+                    </div>
+
+                    <div class="blog-1">_
+                        <img src="img/man.jpeg" alt="">
+                        <h3> Blog 2</h3>_
+                        <p>
+                            Se refiere al acceso equitativo a la educación y a oportunidades de desarrollo personal y profesional para mujeres y niñas.
+                        </p>
+
+                    </div>
+
+                    <div class="blog-1">_
+                        <img src="img/man.jpeg" alt="">
+                        <h3> Blog 3</h3>_
+                        <p>
+                            Se refiere al acceso equitativo a la educación y a oportunidades de desarrollo personal y profesional para mujeres y niñas.
+                        </p>
+                    </div>
+
+                </div>
+                     <a href="" class="btn-1">Informacion</a>
+            </section>
+
+<!--Son puros enlaces en una clase-->
+         <footer class="footer">
+           <div class="footer-content container">
+                <div class="link"> 
+                    <h3>Informacion-blog</h3>
+                    <ul>
+                        <li><a href="#">Fecha</a></li>
+                        <li><a href="#">Fecha</a></li>
+                        <li><a href="#">Fecha</a></li>
+                        <li><a href="#">Fecha</a></li>
+                    </ul>
+                </div>
+
+
+                    <div class="footer-content container">
+                        <div class="link"> 
+                        <h3>Informacion-blog1</h3>
+                        <ul>
+                            <li><a href="#">Publico</a></li>
+                            <li><a href="#">Publico</a></li>
+                            <li><a href="#">Publico</a></li>
+                            <li><a href="#">Publico</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="footer-content container">
+                        <div class="link"> 
+                            <h3>Informacion-blog2</h3>
+                            <ul>
+                                <li><a href="#">Privado</a></li>
+                                <li><a href="#">Privado</a></li>
+                                <li><a href="#">Privado</a></li>
+                                <li><a href="#">Privado</a></li>
+                            </ul>
+                    </div>
+
+                    <div class="footer-content container">
+                            <div class="link"> 
+                                <h3>Informacion-blog3</h3>
+                             <ul>
+                                <li><a href="#">Visitante</a></li>
+                                <li><a href="#">Visitante</a></li>
+                                <li><a href="#">Visitante</a></li>
+                                <li><a href="#">Visitante</a></li>
+                            </ul>
+                     </div>
+            </div>
         </footer>
-    </div>
+
+
+
 </body>
 </html>
 
