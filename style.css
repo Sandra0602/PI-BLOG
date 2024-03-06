@@ -22,7 +22,7 @@ body {
 
 
 .header {
-    background-image: linear-gradient(
+        background-image: linear-gradient(
         rgba(0,0,0,0.7),
         rgba(0,0,0,0.7)),
         url(img/bg.jpeg);
@@ -87,6 +87,19 @@ body {
       display: block;
    }
 
+
+   .navbar {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+   }
+
+   .navbar ul {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+   }
 
    .header-content {  /* Header la parte superior de una página web*/
       text-align: center;
