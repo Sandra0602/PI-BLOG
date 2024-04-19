@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<title>Carrusel de Imagenes</title>
+	<link rel="stylesheet" type="text/css" href="./css/estilo.css">
+</head>
+<body>
+	<div id="slider">
+		<img src="img/1.jpg" alt="">
+		<img src="img/2.jpg" alt="">
+		<img src="img/3.jpg" alt="">
+		<img src="img/4.jpg" alt="">
+		<img src="img/5.jpg" alt="">
+		<img src="img/6.jpg" alt="">
+		<img src="img/7.jpg" alt="">
+		<img src="img/8.jpg" alt="">
+		<img src="img/9.jpg" alt="">
+	</div>
+ 
+	<img id="rotativo"  />
+   
+	<div class="container-form login">
+	 <div class="information">
+		 <div class="info-childs">
+			 <h2>Bienvenido</h2>
+			 <p>Para ingresar a tu perfil por favor inicia sesión con tus 
+                datos</p>
+			 <input type="button" value="Registrarse" id="sign-up">
+		 </div>
+	 </div>
+	 <div class="form-information">
+        <div class="form information-childs">
+            <h2>Iniciar Sesión</h2>
+            <div class="icons"></div>
+            <p>Inicia sesión con tu cuenta</p>
+            <form class="form">
+                <label>
+                    <i class='bx bx-envelope' ></i>
+                    <input type="email" placeholder="Correo electrónico">
+                </label>
+                <label>
+                    <i class='bx bx-lock-alt' ></i>
+                     <input type="password" placeholder="Contraseña">
+                </label>
+                <input type="submit" value="Iniciar Sesión">
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container-form register hide">
+    <div class="information">
+        <div class="info-childs">
+            <h2>Bienvenido nuevamente!</h2>
+            <p>Para unirte a la comunidad UNIGEN registra una cuenta con tus datos
+            <input type="button" value="Iniciar Sesión" id="sign-in">
+        </div>
+    </div>
+    <div class="form-information">
+        <div class="form information-childs">
+            <h2>Crear una cuenta</h2>
+            <div class="icons"></div>            
+            <p>Usa tus datos para crear una cuenta nueva</p>
+            <form class="form"> 
+                <label>
+                    <i class='bx bx-user' ></i>
+                    <input type="text" placeholder="Nombre de usuario">
+                </label>
+                <label>
+                    <i class='bx bx-envelope' ></i>
+                    <input type="email" placeholder="Correo electrónico">
+                </label>
+                <label>
+                    <i class='bx bx-lock-alt' ></i>
+                     <input type="password" placeholder="Contraseña">
+                </label>
+                <input type="submit" value="Registrarse">
+            </form>
+        </div>
+    </div>
+</div>
+	
+	<script type="text/javascript" src="./js/jslider.js"></script>			
+</body>
+</html>
