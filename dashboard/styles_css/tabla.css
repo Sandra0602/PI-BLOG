@@ -1,0 +1,6 @@
+<style>
+    .content-column {
+        max-width: 200px; /* Establece un ancho máximo para la columna */
+        overflow-wrap: break-word; /* Permite que el texto se rompa y salte a la siguiente línea si es demasiado largo */
+    }
+</style>
