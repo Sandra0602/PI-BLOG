@@ -29,6 +29,7 @@ if (!empty($ab)) {
 
     // Parámetros para la consulta preparada
     $parametros = array(':usuario' => $ab);
+    
 
     try {
         // Ejecuta la consulta SQL con parámetros usando el método execute()
@@ -51,12 +52,21 @@ if (!empty($ab)) {
     }
 }
 
+//consulta CON ID para retornar datos del usuario
+$sql = "SELECT * FROM usuarios WHERE id = " . $_SESSION["user_id"];
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$user = $stmt->fetchAll(); //array de consulta
+//Nombre del usuario 
+$nom_usuario = $user[0]["usuario"];
+
+
 //publicacion
 if(isset($_POST['publicar'])){
     // Consulta preparada para insertar una nueva publicación
     $sql = "INSERT INTO `publicaciones`(`titulo`, `contenido`, `fecha`,`Nombre`) VALUES (?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$_POST["titulo"], $_POST["contenido"], date('Y-m-d H:i:s'), '']); // Ajusta el valor de 'Nombre' según lo necesites
+    $stmt->execute([$_POST["titulo"], $_POST["contenido"], date('Y-m-d H:i:s'), $nom_usuario]); // Ajusta el valor de 'Nombre' según lo necesites
 
     // Obtener el último ID insertado
     $id_pu = $pdo->lastInsertId();
@@ -79,7 +89,6 @@ if(isset($_POST["borrar"])){
 }
 ?>
 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,7 +152,7 @@ if(isset($_POST["borrar"])){
         <div class="container2">
     <div class="segundo-bloque">
         <?php
-        $sql = "SELECT t1.id, t1.fecha, t1.contenido, t1.titulo, t2.imagen FROM publicaciones t1 JOIN imagenes t2 ON t2.id_publicaciones = t1.id ORDER BY fecha DESC";
+        $sql = "SELECT t1.id, t1.fecha, t1.contenido, t1.titulo, t2.imagen, t1.Nombre FROM publicaciones t1 JOIN imagenes t2 ON t2.id_publicaciones = t1.id ORDER BY fecha DESC";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         while ($r = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -154,11 +163,12 @@ if(isset($_POST["borrar"])){
                     <img src="img_fem/C399B262-8438-41D5-B0CE-12D7189FD062_1_201_a.jpeg"> <!--Esta es la imagen para el usuario del blog -->
                     <div>
                         <?php //echo "<p>$user_usuario</p>"; ?>
-                        <span><?php echo date("d/m/Y H:i", strtotime($r["fecha"]))?></span>
+                        <h3><?php echo $r["Nombre"]?></h3>
                     </div>
                 </div>
             </div>
             <h1><?php echo $r["titulo"]?> </h1>
+            <span><?php echo date("d/m/Y H:i", strtotime($r["fecha"]))?></span>
             <p class="post-text"><?php echo $r["contenido"]?> </p>
             <?php
                 echo '<img class="post-img" src="data:image/jpeg;base64,'.base64_encode($r["imagen"]).'"/>'; 
