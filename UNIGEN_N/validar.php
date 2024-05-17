@@ -46,6 +46,7 @@
     
             // Almacenar ID de usuario en la sesión
             $_SESSION["user_id"] = $user_id;
+            $_SESSION["user_admin_comp"] = $admin;
     
             // Redireccionar según el tipo de usuario
             if ($admin == "no") {

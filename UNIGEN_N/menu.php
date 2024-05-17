@@ -13,10 +13,11 @@
                 $stmt->bindParam(':user_id', $_SESSION["user_id"]);
                 $stmt->execute();
                 $isadmin = $stmt->fetchColumn();
-
+                    
                 if ($isadmin == "si") {
             ?>
                 <li><a href="admin/index.php">Inicio</a></li>
+                <li><a href="./admin/dashboard_2">Dash</a></li>
             <?php
                 } else {
             ?>
@@ -37,10 +38,16 @@
             ?>
                 <li><a href="login.php">Iniciar sesión</a></li>
             <?php
-            } else {
+            } else if (isset($_SESSION["user_admin_comp"]) == 'no'){
             ?>
+                <li><a href="./admin/index.php">Publicar</a></li>
                 <li><a href="cerrar_sesion.php">Cerrar Sesión</a></li>
             <?php
+            } else if (isset($_SESSION["user_admin_comp"]) == 'si'){
+                ?>
+                
+                <li><a href="cerrar_sesion.php">Cerrar Sesión</a></li>
+                <?php
             }
             ?>
         </ul>

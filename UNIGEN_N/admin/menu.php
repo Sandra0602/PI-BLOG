@@ -16,6 +16,7 @@
                 <?php
                 }else{
                 ?>
+                
                 <li><a href="../cerrar_sesion.php">Cerrar Sesión</a></li>
                 <?php }?>
             </ul>

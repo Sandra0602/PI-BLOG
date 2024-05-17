@@ -172,6 +172,7 @@ if(isset($_POST["borrar"])){
             <p class="post-text"><?php echo $r["contenido"]?> </p>
             <?php
                 echo '<img class="post-img" src="data:image/jpeg;base64,'.base64_encode($r["imagen"]).'"/>'; 
+                
             ?>
             <div class="post-row">
             </div>

@@ -1,10 +1,20 @@
 <?php 
-/*
+
 session_start();
-if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
-	print "<script>window.location='index.php';</script>";
-}  */
-//$user=$_SESSION["user_id"];
+
+// Verificar si la variable de sesión 'user_id' está definida
+if (isset($_SESSION['user_id'])) {
+    // La sesión está iniciada
+    // Puedes realizar acciones específicas para un usuario autenticado aquí
+    //echo "¡La sesión está iniciada!";
+} 
+
+
+
+//$user = $_SESSION["user_id"];
+
+// Aquí puedes realizar acciones adicionales utilizando la variable $user
+
 include 'conexion/conexion.php';
 ?>
 <!DOCTYPE html>
