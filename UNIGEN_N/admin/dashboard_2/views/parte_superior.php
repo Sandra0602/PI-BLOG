@@ -41,7 +41,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
+        <!-- BARRA  -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
@@ -68,7 +68,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Interfaz
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -81,8 +81,8 @@
              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionSidebar">
                  <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
-            <a class="collapse-item" href="buttons.php">NEW PUBLICACION</a>
-            <a class="collapse-item" href="cards.php">EDIT POST</a>
+            <a class="collapse-item" href="buttons.php">NUEVA PUBLICACION</a>
+            <a class="collapse-item" href="cards.php">EDITAR POST</a>
 
 
                  </div>
@@ -113,7 +113,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Inicio del blog
             </div>
 
             <!-- Nav Item - Pages Collapse Menu 
@@ -138,8 +138,8 @@
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="../../index.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Exit</span></a>
+                <i class="bi bi-house-dash"></i>
+                    <span>Inicio</span></a>
             </li>
 
             <!-- Divider -->
@@ -147,7 +147,7 @@
         </ul>
         <!-- End of Sidebar -->
 
-        <!-- Content Wrapper _________________ CONTENIDO  _______________-->
+        <!-- Content Wrapper _________________ CONTENIDO DE LA PAGINA  _______________-->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->

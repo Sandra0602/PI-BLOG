@@ -1,5 +1,7 @@
 <?php
 include_once './bd/conexion.php';
+session_start();
+
 
 $consulta = "SELECT id, contenido, fecha, titulo, Nombre FROM publicaciones";
 $resultado = $pdo->prepare($consulta);
@@ -17,16 +19,18 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
 <!--Inicio del contenido principal-->
 
 <div class="container border">
-    <h1 class="fs-1">ADMINISTRACION</h1>
+    <h1 class="fs-1">PANEL DE CONTROL DE ADMINISTRACION</h1>
 
     <!--INICIO del cont principal-->
     <div class="container">
-        <h1>Contenido principal</h1>
+        <h1>Bienvenido al Panel de Administracion</h1>
         <!-- Botón Nuevo -->
             <div class="container">
              <div class="row">
                   <div class="col-lg-12">
-                  <a href="buttons.php" class="btn btn-success">Nueva Publicacion</a>
+                  <a href="buttons.php" class="btn btn-success">Hacer Nueva Publicacion</a>
+                  <a href="cards.php" class="btn btn-success">Poder editar los posts</a>
+                  <a href="views_posts.php" class="btn btn-success">Ver las publicaciones</a>
              </div>
               </div>
     </div>
@@ -71,47 +75,7 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
         
 
 
-        <!--Modal para CRUD-->
-        <div class="modal fade" id="modalCRUD" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Nueva Publicación</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form id="formPublicacion"> <!-- Cambiar id del formulario -->
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="id" class="form-label">Id:</label>
-                                <input type="text" class="form-control" id="id" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label for="contenido" class="form-label">Contenido:</label>
-                                <input type="text" class="form-control" id="contenido">
-                            </div>
-                            <div class="mb-3">
-                                <label for="titulo" class="form-label">Titulo:</label>
-                                <input type="text" class="form-control" id="titulo">
-                            </div>
-                            <div class="mb-3">
-                                <label for="fecha" class="form-label">Fecha:</label>
-                                <input type="text" class="form-control" id="fecha">
-                            </div>
-                            <div class="mb-3">
-                                <label for="nombre" class="form-label">Nombre:</label>
-                                <input type="text" class="form-control" id="nombre">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--FIN del cont principal-->
+        
 </div>
 
 <?php require_once "./views/parte_inferior.php"?>

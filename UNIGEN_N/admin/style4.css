@@ -123,16 +123,7 @@ header.abajo ul li a {
     
 }
 
-.photo-submit {
-    width: 100%;
-    top: 70px;
-    position: sticky;
-    background: #fff;
-    border: solid thin #9191bd;
-    border-radius: 20px;
-    padding: 20px;
-    color: #626262;  
-}
+
 
 
 .main-content {
@@ -155,12 +146,12 @@ header.abajo ul li a {
 
 .write-post-container {
     width: 100%;
-    height: 415px;
+    height: 475px;
     top: 85px;
     position: sticky;
     background: #f9fafc;
     border-radius: 6px;
-    padding: 20px;
+    padding: 30px;
     color: #626262;
 }
 
@@ -180,6 +171,7 @@ header.abajo ul li a {
     margin-bottom: -5px;
     font-weight: 500;
     color: #626262;
+    font-size: 25px;
 }
 
 .user-profile small {
@@ -187,16 +179,28 @@ header.abajo ul li a {
 }
 
 .post-input-container {
-    padding-left: 55px;
-    padding-top: 20px;
-
+    padding-left: 15px;
+    padding-top: 20px;   
 }
 .post-input-container label {
-    padding-right: 10px;
+    padding-right: 5px;
+    font-size: 18px;
 }
+
+.post-input-container textarea{
+    padding-top: 0px;
+    padding-left: 10px;
+    font-size: 14px;
+    height: 60px;
+}
+
+.post-input-container ::placeholder {
+    padding-top: 20px;
+}
+
 .linea {
     border: none;
-    border-bottom: 1px solid black; /* O el color que desees */
+    border-bottom: 2px solid black; /* O el color que desees */
     padding: 5px; /* Ajusta el espaciado si es necesario */
     width: 300px; /* Ajusta el ancho según tus necesidades */
     box-sizing: border-box; /* Incluye el borde en el ancho total */
@@ -210,6 +214,17 @@ header.abajo ul li a {
     background: transparent;
     resize: none;
 }
+
+.form-control {
+    height: 45px;
+    width: 350px;
+    margin-top: 40px;
+}
+
+.submit input {
+    /*----------------------------------------------------------------------------------*/
+}
+
 
 
 /*Parte donde el administrador 

@@ -16,12 +16,14 @@
                     
                 if ($isadmin == "si") {
             ?>
-                <li><a href="admin/index.php">Inicio</a></li>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="./admin/dashboard_2">Dash</a></li>
+
             <?php
                 } else {
             ?>
                 <li><a href="index.php">Inicio</a></li>
+                
             <?php
                 }
             } else {

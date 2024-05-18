@@ -1,16 +1,16 @@
 <?php 
 session_start();
-
 date_default_timezone_set('America/Mexico_City');
-if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
+if (!isset($_SESSION["user_id"]) || $_SESSION["user_id"] == null) {
     print "<script>window.location='../../dashboard/datos.php';</script>";
 }
 include '../conexion/conexion.php';
+include 'image_handler.php';
 
 // Consulta preparada para evitar inyección SQL
 $sql = "SELECT * FROM usuarios WHERE usuario = ? AND password = ?";
 $stmt = $pdo->prepare($sql);
-//$stmt->execute([$a, $b]);
+// $stmt->execute([$a, $b]);
 
 // Obtener el primer resultado
 $user_id = '';
@@ -29,7 +29,6 @@ if (!empty($ab)) {
 
     // Parámetros para la consulta preparada
     $parametros = array(':usuario' => $ab);
-    
 
     try {
         // Ejecuta la consulta SQL con parámetros usando el método execute()
@@ -60,28 +59,20 @@ $user = $stmt->fetchAll(); //array de consulta
 //Nombre del usuario 
 $nom_usuario = $user[0]["usuario"];
 
+// publicacion
+if (isset($_POST['publicar'])) {
+    // Inicializa la variable de la imagen
+    $imagen = handleImageUpload();
 
-//publicacion
-if(isset($_POST['publicar'])){
     // Consulta preparada para insertar una nueva publicación
-    $sql = "INSERT INTO `publicaciones`(`titulo`, `contenido`, `fecha`,`Nombre`) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO `publicaciones`(`titulo`, `contenido`, `fecha`, `Nombre`, `imagen`) VALUES (?, ?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$_POST["titulo"], $_POST["contenido"], date('Y-m-d H:i:s'), $nom_usuario]); // Ajusta el valor de 'Nombre' según lo necesites
 
-    // Obtener el último ID insertado
-    $id_pu = $pdo->lastInsertId();
-
-    // Procesar la imagen
-    $image = $_FILES['image']['tmp_name'];
-    $imgContent = addslashes(file_get_contents($image));
-
-    // Consulta preparada para insertar la imagen
-    $sql = "INSERT INTO `imagenes`(`id_publicaciones`, `imagen`) VALUES (?, ?)";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id_pu, $imgContent]);
+    // Ejecutar la consulta preparada con los datos
+    $stmt->execute([$_POST["titulo"], $_POST["contenido"], date('Y-m-d H:i:s'), $nom_usuario, $imagen]);
 }
 
-if(isset($_POST["borrar"])){
+if (isset($_POST["borrar"])) {
     // Consulta preparada para borrar una publicación
     $sql = "DELETE FROM publicaciones WHERE `id` = ?";
     $stmt = $pdo->prepare($sql);
@@ -115,77 +106,87 @@ if(isset($_POST["borrar"])){
 </head>
 <body>
     <?php
-        include'menu.php';
+        include 'menu.php';
     ?>
     
-    <!------------------main.content-------------------> <!------------------publicacion----->
+    <!------------------main.content------------------->
+    <!------------------publicacion-------------------->
 
     <div class="container">
-    
         <div class="main-content">
-           
-
-                <div class="write-post-container">
-                    <div class="user-profile">
-                        <img src="img_fem/C399B262-8438-41D5-B0CE-12D7189FD062_1_201_a.jpeg">
-                        <div>
-                            <?php ?>
-                            <p>Unigen</p>
+            <div class="write-post-container">
+                <!--Reacuadro de crear una publicacion-->
+                <div class="user-profile">
+                    <img src="img_fem/C399B262-8438-41D5-B0CE-12D7189FD062_1_201_a.jpeg">
+                    <div>
+                        <?php //echo $nom_usuario; ?>
+                        <p>@User</p>
                     </div>
                 </div>
-                    
-                <form method="post" action="procesar_imagen.php" class="form" enctype="multipart/form-data">
+                
+                <form method="post" action="" class="form" enctype="multipart/form-data">
                     <div class="post-input-container">
-                            <label>Titulo</label><input type="text" name="titulo" class="form-control linea" required><br>
-                            <label>Información</label><textarea rows="5" placeholder="contenido" name="contenido" required></textarea>
+                        <label>Titulo</label>
+                        <textarea rows="5" placeholder="Escribe" name="titulo" required></textarea>
+                        <label>Contenido</label>
+                        <textarea rows="5" placeholder="Escribe" name="contenido" required></textarea>
                     </div>
-                    <div class="photo-submit">
-                        <input type="file" class="form-control" id="image" name="image" required>
+                    <div class="file-field input-field">
+                        <input type="file" class="form-control" id="imagen" name="imagen" required>
+                        <!-- Seleccionar la imagen -->
                     </div>
-                        <input type="submit" value="Publicar" name="publicar">
+                    <input type="submit" class="submit" value="Publicar" name="publicar">
+                    <!--Boton de publicar-->
                 </form>
-                </div>
-
+            </div>
         </div> <!--Aqui acaba el main content-->
 
         <!------------------publicacion 1------------------->
         <div class="container2">
-    <div class="segundo-bloque">
-        <?php
-        $sql = "SELECT t1.id, t1.fecha, t1.contenido, t1.titulo, t2.imagen, t1.Nombre FROM publicaciones t1 JOIN imagenes t2 ON t2.id_publicaciones = t1.id ORDER BY fecha DESC";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-        while ($r = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        ?>
-        <div class="post-container">
-            <div class="post-row">
-                <div class="user-profile">
-                    <img src="img_fem/C399B262-8438-41D5-B0CE-12D7189FD062_1_201_a.jpeg"> <!--Esta es la imagen para el usuario del blog -->
-                    <div>
-                        <?php //echo "<p>$user_usuario</p>"; ?>
-                        <h3><?php echo $r["Nombre"]?></h3>
+            <div class="segundo-bloque">
+                <?php
+                $sql = "SELECT id, fecha, contenido, titulo, imagen, Nombre FROM publicaciones ORDER BY fecha DESC";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute();
+                while ($r = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                <div class="post-container">
+                    <div class="post-row">
+                        <div class="user-profile">
+                            <img src="img_fem/C399B262-8438-41D5-B0CE-12D7189FD062_1_201_a.jpeg">
+                            <!--Esta es la imagen para el usuario del blog-->
+                            <div>
+                                <?php //echo "<p>$user_usuario</p>"; ?>
+                                <h3><?php echo $r["Nombre"] ?></h3>
+                                <!--Aqui imprime el nombre del usuario-->
+                            </div>
+                        </div>
                     </div>
+                    <!--Aqui imprimie la publicacion-->
+                    <h1><?php echo $r["titulo"] ?></h1>
+                    <span><?php echo date("d/m/Y H:i", strtotime($r["fecha"])) ?></span>
+                    <p class="post-text"><?php echo $r["contenido"] ?></p>
+                    <?php
+                    // Mostrar la imagen de la publicación
+                    if (!empty($r["imagen"])) {
+                        echo '<img class="post-img" src="' . $r["imagen"] . '" alt="Publicación Imagen" />';
+                    }
+                    ?>
+                    <div class="post-row"></div>
+                    <form method="post" action="" class="form" enctype="multipart/form-data">
+                        <input type="hidden" class="form-control" name="id" value="<?php echo $r["id"]; ?>">
+                        <input type="submit" value="Borrar" name="borrar">
+                        <!--Boton de borrar-->
+                    </form>
                 </div>
+                <?php
+                }
+                ?>
             </div>
-            <h1><?php echo $r["titulo"]?> </h1>
-            <span><?php echo date("d/m/Y H:i", strtotime($r["fecha"]))?></span>
-            <p class="post-text"><?php echo $r["contenido"]?> </p>
-            <?php
-                echo '<img class="post-img" src="data:image/jpeg;base64,'.base64_encode($r["imagen"]).'"/>'; 
-                
-            ?>
-            <div class="post-row">
-            </div>
-            <form method="post" action="" class="form" enctype="multipart/form-data">
-                <input type="hidden" class="form-control" name="id" value="<?php echo $r["id"]?>">   
-                <input type="submit" value="Borrar" name="borrar">
-            </form>
         </div>
-        <?php
-        }
-        ?>
     </div>
-</div>
+</body>
+</html>
 
     </div> <!--Aqui acaba el primer container-->
     <!------------------right-sidebar------------------>
@@ -206,7 +207,6 @@ if(isset($_POST["borrar"])){
         </div>        
 
         <p>&copy; 2024 UNIGEN - All Rights Reserved </p>
-
 
         <div class="button-container">
 

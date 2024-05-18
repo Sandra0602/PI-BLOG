@@ -9,14 +9,14 @@ include 'conexion/conexion.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-<!-- CSS de Bootstrap -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS de Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Librería jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Librería jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- Librería de Bootstrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Librería de Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="styles/publicaciones.css">
     <title>Unigen</title>
@@ -30,9 +30,12 @@ include 'conexion/conexion.php';
     <div class="container2">
         <div class="segundo-bloque">
             <?php
-                $sql = "SELECT t1.fecha, t1.contenido, t1.titulo, t2.imagen FROM publicaciones t1 JOIN imagenes t2 ON t2.id_publicaciones = t1.id ORDER BY fecha DESC";
+                // Consulta para obtener todas las publicaciones
+                $sql = "SELECT id, fecha, contenido, titulo, imagen, Nombre FROM publicaciones ORDER BY fecha DESC";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute();
+                
+                // Iterar sobre los resultados y mostrar las publicaciones
                 while ($r = $stmt->fetch(PDO::FETCH_ASSOC)) {
             ?>
             <div class="post-container">
@@ -40,7 +43,7 @@ include 'conexion/conexion.php';
                     <div class="user-profile">
                         <img src="img_fem/img_comu.jpg">
                         <div>
-                            <p>Unigen</p>
+                            <p><?php echo $r["Nombre"]; ?></p>
                             <span><?php echo date("d/m/Y H:i", strtotime($r["fecha"]))?></span>
                         </div>
                     </div>
@@ -48,7 +51,9 @@ include 'conexion/conexion.php';
                 <h1><?php echo $r["titulo"]?> </h1>
                 <p class="post-text"><?php echo $r["contenido"]?> </p>
                 <?php
-                    echo '<img class="post-img" src="data:image/jpeg;base64,'.base64_encode($r["imagen"]).'"/>'; 
+                    if (!empty($r["imagen"])) {
+                        echo '<img class="post-img" src="'.$r["imagen"].'" alt="Imagen de la publicación" />';
+                    }
                 ?>
                 <div class="post-row"></div>
             </div>
