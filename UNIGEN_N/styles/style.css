@@ -1,0 +1,579 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+/*Barra dinamica*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.7s;
+    padding: 5px 10px 25px 15px;
+    z-index: 10;
+}
+
+header.abajo {
+    background: #4444a6;
+    padding: 5px 10px;
+}
+
+header a img {
+    width: 60px;
+    margin-right: 45px;
+    border-radius: 5px;
+    top: 0px;
+    left: 0px;
+    transition: 1.5s;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    position: relative;
+    margin: 0 15px;
+    text-decoration:  none;
+    color: #fff;
+    letter-spacing: 4px;
+    font-weight: 600;
+    transform: 0.7s;
+}
+
+
+header.abajo.img,
+header.abajo ul li a {
+    color: #fff;
+}
+
+
+/*imagen del fondo del inicio*/
+.cont_video {
+    position: relative;
+    width: 100%;
+    height: 71vh;
+    overflow: hidden;
+}
+
+.back-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.content h1 {
+    font-size: 75px;
+    line-height: 80px;
+    color: #f9fafc;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    animation: colorChange 5s infinite alternate; 
+}
+
+.content p {
+    font-size: 16px;
+    /*color: #c5c5c5;*/
+    color: #eee;
+    padding: 0 20px;
+    text-align: justify;
+    text-shadow: 0 10px 15px #0004;
+}
+
+@keyframes colorChange {
+    0% {
+        color: #d1b1e2;
+    }
+    50% {
+        color: #5959df; /* Color naranja */
+    }
+    100% {
+        color: #d1b1e2;
+    }
+}
+
+
+  /*Quienes somos*/
+.general-blog3 {
+    background-image: url(../../img_fem/img_vertical.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.general-blog1 {
+    width: 50%;
+    padding: 100px 250px 100px 100px;
+    background-color: #E1E2E6;
+}
+
+  /*Noticias*/
+
+.services {
+    background-image: linear-gradient(
+        rgba(0, 0 , 0 ,0.7),
+        rgba(0, 0, 0, 0.7)),
+        url(../../img_fem/img_fem1.jpeg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 100px 0;
+}
+
+.services-content {
+    text-align: center;
+}
+
+.services-content h2 {
+    font-size: 55px;
+    line-height: 70px;
+    color: #F9FAFC;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    padding: 0 100px;
+}
+
+.boton {
+    background-image: url(../../img_fem/igualdad1.avif);
+    background-size: cover;
+    background-position: center; 
+    color: #ffffff;
+    cursor: pointer;
+    padding: 1.5rem;
+    width: 85%;
+    text-align: left;
+    border-radius: 20px;
+    border: 2px solid rgb(56, 39, 39);
+    outline: none;
+    transition: 0.4s;
+    font-size: 30px;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 15px;
+}
+.boton2{
+    background-image: url(../../img_fem/img_blog1.jpg);
+    background-size: cover;
+    background-position: center; 
+    color: #ffffff;
+    cursor: pointer;
+    padding: 1.5rem;
+    width: 85%;
+    text-align: left;
+    border-radius: 20px;
+    border: 2px solid rgb(56, 39, 39);
+    outline: none;
+    transition: 0.4s;
+    font-size: 30px;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 15px;
+}
+.panel {
+    padding: 0 18px;
+    background-color: #8d6e95;
+    display: none;
+    overflow: hidden;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 15px; 
+    width: 85%;
+    margin-left: 110px;
+  }
+  .active, .boton:hover {
+    background-image: url(../../img_fem/igualdad1osc.jpg);
+    background-color: #8d6e95;
+  }
+  
+  .nota{
+    text-align: left;
+    color: #fff;
+  }
+.n1{
+    color: #ffffff;
+    text-align: left;
+}
+
+/*blog*/
+
+.blog-container {
+    text-align: center;
+    padding: 100px 0;
+}
+
+h2 {
+    font-size: 55px;
+    line-height: 70px;
+    color: #323337;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    color: #414247;    
+    margin: 25px 0 45px 0;
+}
+
+.blog-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinea verticalmente el contenido */
+}
+
+.blog-1 {
+    flex: 1; /* Esto es lo que toma el ancho máximo posible */
+    padding: 15px;
+    text-align: center;
+}
+
+.blog-1 img {
+    display: block; /* Para centrar la imagen */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    width: 250px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.blog-1 h3 {
+    font-size: 25px;
+    color: #323337;
+}
+
+.btn-1 {  
+    display: inline-block;
+    padding: 11px 35px;
+    background-color: #fff;
+    color: #9191bd;
+    text-transform: uppercase;
+    border-radius: 20px;
+}
+
+.btn-1:hover {
+    background-color: #5959df;
+    color: #fff;
+}
+
+
+/*Cuales son algunas formas...*/
+.general-blog {
+    display: flex;
+}
+
+.general-blog1 {
+    width: 50%;
+    padding: 100px 250px 100px 100px;
+    background-color: #E1E2E6;
+}
+
+.general-blog2 {
+    background-image: url(../../img_fem/img_violencia.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50%;
+}
+
+/*Situació de la mujer*/
+
+.Genero {
+    padding: 100px 0;
+    background-color: #f9fafc;
+    position: relative;
+}
+
+.Genero-content {
+    text-align: center;
+}
+
+.Genero-content h2 {
+    font-size: 55px;
+    line-height: 70px;
+    color: #323337;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+
+}
+.txt-p-container {
+    text-align: center;
+}
+
+.txt-p {
+    font-size: 15px;
+    color: #333237;
+    margin: 0 auto 35px auto; /*Elimne padding y puse para que el texto se centarara*/
+    max-width: 600px;
+}
+
+.genero-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.generos {
+    padding: 0;
+}
+
+.generos img {
+    width: 200px;
+    height: auto; /*Para mantener la posicion de la imagen*/
+    border-radius: 20px;
+    display: block; /*Asegurar que la imagen este centarada*/
+    margin: 0 auto; /*Centrarlo*/
+}
+
+.Genero-img {
+    position:fixed;
+    top: 0;
+    right: 0;
+
+}
+
+.generos h3 {
+    color: #323337;
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+/*Noticia1*/
+
+/* Estilos para la sección de la noticia */
+.not1 {
+    margin-top: 120px;
+    text-align: center; /* Centra el texto */
+}
+
+.noticia-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacio entre la imagen y el texto */
+    background-color: white; /* Fondo blanco */
+    padding: 20px; /* Espacio alrededor del contenido de la noticia */
+    margin: 40px; /* Margen para separar del borde exterior */
+    border-radius: 10px; /* Bordes redondeados para un aspecto más suave */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera para resaltar el contenedor */
+}
+
+.info-imagen {
+    max-width: 200px; /* Ajusta el tamaño máximo de la imagen según sea necesario */
+    height: auto; /* Ajusta automáticamente la altura de la imagen */
+    margin-left: 50px;
+    border-radius: 20px;
+}
+
+.info-noti {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.body2{
+    background-image: url(../../img_fem/fondomorado.jpeg);
+}
+
+.masnoti{
+    margin-top: -100px;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}
+
+
+
+.recuadro {
+    display: inline-block; 
+    width: 45%; 
+    margin: 10px; 
+    padding: 10px; 
+    border: 5px solid #ccc; 
+    border-radius: 20px; 
+    margin-right: 40px;
+    margin-left: 30px;
+}
+
+.recuadro img {
+    display: block; 
+    margin: 0 auto 10px;
+}
+
+
+.recuadro a {
+    display: block; 
+    text-align: center; 
+    text-decoration: none; 
+    color: #333; 
+}
+
+
+
+
+/*Footer*/
+.footer {
+    background-color: #232323;
+    height: 15vh;
+    position: relative;
+    
+}
+
+.footer-cont {
+    height: 15vh;
+    padding: 10px ;
+}
+
+/*.footer p {
+    color: #9a9a9a;
+    font-size: 13px;
+    text-align: center; 
+    position: absolute;
+    bottom: 10px; /* Ajustar la posición vertical */
+   /* width: 100%; /* Asegurar que ocupe todo el ancho 
+}
+*/
+
+.footer p {
+    color: #9a9a9a;
+    font-size: 11px;
+    text-align: center;
+    position: absolute;
+    left: 25%; /* Mover 30px a la izquierda */
+    top: 50%; /* Ajustar la posición vertical */
+    letter-spacing: 1px;
+}
+
+
+.link {
+    position: absolute;
+    left: 25%; /* Ajusta la posición horizontal */
+    top: 30%; /* Ajusta la posición vertical */
+    display: flex; /* Hace que los elementos estén en línea */
+    justify-content: center; /* Centra horizontalmente los elementos */
+}
+
+.link ul {
+    list-style-type: none; /* Elimina los marcadores de lista */
+    padding: 0; /* Elimina el relleno predeterminado de la lista */
+    margin: 0; /* Elimina el margen predeterminado de la lista */
+    display: flex; /* Hace que los elementos de la lista estén en línea */
+}
+
+.link a {
+    font-size: 13px;
+    color: #9a9a9a; 
+    margin-right: 15px; /* Agrega un margen derecho entre los elementos */
+    width: 100px;
+    letter-spacing: 1px;
+    transition: transform 0.5s ease;
+}
+
+ .link ul li {
+    display: inline; /* Hace que los elementos <li> estén en línea */
+    transition: transform 0.5s ease; /* Agrega una transición suave */
+}
+
+.link ul li:hover {
+    transform: translateY(-2px); /* Mueve el elemento hacia arriba al hacer hover */
+}
+.footer img {
+    height: 60px;
+    top: 25%;
+    left: 4%;
+    position: absolute;
+}
+.footer h2 {
+    font-size: 40px; /* Ajusta el tamaño del texto según tus necesidades */
+    font-weight: lighter;
+    color: #b2ebf9; /* Ajusta el color del texto según tus necesidades */
+    position: absolute; /* Permite posicionar el texto dentro del footer */
+    left: 15%; /* Ajusta la posición a la mitad horizontal */
+    top: 60%; /* Ajusta la posición a la mitad vertical */
+    transform: translate(-50%, -50%); /* Centra el texto horizontal y verticalmente */
+}
+
+
+.footer-cont::after {
+    content: '';
+    position: absolute;
+    width: 1px; 
+    height: 50px; /* Altura de la línea */
+    background-color: #e3e3e4;/* Color de la línea */
+    top: 28%; /* Posiciona la línea verticalmente debajo del h2 */
+    left: 22.5%; /* Posiciona la línea horizontalmente en el centro */
+    transform: translateX(-50%); /* Centra horizontalmente la línea */
+    z-index: 1; /* Asegura que la línea esté sobre el contenido */
+}
+
+
+
+.button-container {
+    position: absolute;
+    right: 10%; /* Ajusta la posición a la mitad horizontal en el lado derecho */
+    top: 35%; /* Ajusta la posición a la mitad vertical */
+    display: flex;
+    width: 100px;
+    height: 40px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+  .button {
+    outline: 0 !important;
+    border: 2px solid transparent; /* Establece un borde inicial transparente */
+    width: 40px;
+    height: 40px;
+    border-radius: 10%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    border-color: #b2ebf9; /* Cambia el color del contorno al hacer hover */
+}
+  
+.button i {
+    font-size: 25px; /* Ajusta el tamaño de la fuente de los iconos */
+    color: #fff;
+}
+.button a {
+    color: #fff; /* Establece el color del texto del enlace en blanco */
+}
