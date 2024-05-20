@@ -3,8 +3,6 @@
     <nav>
         <ul>
             <?php
-            //session_start(); // Inicia la sesión para acceder a $_SESSION["user_id"]
-
             // Verifica si el usuario está autenticado
             if(isset($_SESSION["user_id"])){
                 // Consulta el tipo de usuario (admin o no)
@@ -15,40 +13,31 @@
                 $isadmin = $stmt->fetchColumn();
                     
                 if ($isadmin == "si") {
-            ?>
-                <li><a href="index.php">Inicio</a></li>
-                <li><a href="./admin/dashboard_2">Dash</a></li>
-
-            <?php
+                    // Si es administrador, muestra los elementos del menú para administrador
+                    ?>
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="http://localhost/UNIGEN/UNIGEN_N/admin/dashboard_2/index.php">Admi</a></li>
+                    <li><a href="publicaciones.php">Blog</a></li>
+                    <li><a href="historia.php">Historia</a></li>
+                    <li><a href="cerrar_sesion.php">Cerrar Sesión</a></li>
+                    <?php
                 } else {
-            ?>
-                <li><a href="index.php">Inicio</a></li>
-                
-            <?php
+                    // Si no es administrador, muestra los elementos del menú para usuario regular
+                    ?>
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="publicaciones.php">Blog</a></li>
+                    <li><a href="historia.php">Historia</a></li>
+                    <li><a href="./admin/index.php">Publicar</a></li>
+                    <li><a href="cerrar_sesion.php">Cerrar Sesión</a></li>
+                    <?php
                 }
             } else {
-            ?>
-                <li><a href="index.php">Inicio</a></li>
-            <?php
-            }
-            ?>
-            <li><a href="publicaciones.php">Blog</a></li>
-            <li><a href="historia.php">Historia</a></li>
-            <?php
-            // Verifica si el usuario está autenticado
-            if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"] == null){
-            ?>
-                <li><a href="login.php">Iniciar sesión/Registrarse</a></li>
-            <?php
-            } else if (isset($_SESSION["user_admin_comp"]) == 'no'){
-            ?>
-                <li><a href="./admin/index.php">Publicar</a></li>
-                <li><a href="cerrar_sesion.php">Cerrar Sesión</a></li>
-            <?php
-            } else if (isset($_SESSION["user_admin_comp"]) == 'si'){
+                // Si no está autenticado, muestra los elementos del menú para visitante
                 ?>
-                
-                <li><a href="cerrar_sesion.php">Cerrar Sesión</a></li>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="publicaciones.php">Blog</a></li>
+                <li><a href="historia.php">Historia</a></li>
+                <li><a href="login.php">Iniciar sesión/Registrarse</a></li>
                 <?php
             }
             ?>
