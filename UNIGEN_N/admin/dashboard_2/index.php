@@ -30,7 +30,7 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
                   <div class="col-lg-12">
                   <a href="buttons.php" class="btn btn-success">Hacer Nueva Publicacion</a>
                   <a href="cards.php" class="btn btn-success">Poder editar los posts</a>
-                  <a href="views_posts.php" class="btn btn-success">Ver las publicaciones</a>
+               <!--   <a href="views_posts.php" class="btn btn-success">Ver las publicaciones</a>  -->
              </div>
               </div>
     </div>

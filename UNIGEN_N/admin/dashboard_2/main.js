@@ -55,7 +55,7 @@ $(document).ready(function(){
     });
 
 
-    // Botón BORRAR
+    /* Botón BORRAR
     $(document).on("click", ".btnBorrar", function(){    
         fila = $(this).closest("tr");
         var id = parseInt(fila.find('td:eq(0)').text());
@@ -116,5 +116,5 @@ $("#formPublicacion").submit(function(e){
         }
     });
     $("#modalCRUD").modal("hide");
-});
+});  */
 });

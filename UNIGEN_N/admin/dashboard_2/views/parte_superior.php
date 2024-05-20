@@ -80,7 +80,7 @@
          </a>
              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionSidebar">
                  <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Components:</h6>
+            <h6 class="collapse-header">PUBLICACIONES:</h6>
             <a class="collapse-item" href="buttons.php">NUEVA PUBLICACION</a>
             <a class="collapse-item" href="cards.php">EDITAR POST</a>
 
@@ -89,24 +89,25 @@
              </div>
         </li>
 
+        <!----------------------AQUI SON LOS VIEWS, LO COMENTE ------------------------------->
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- Nav Item - Utilities Collapse Menu 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     
-                    <span>VIEWS POSTS</span>
+                    <span> POSTS</span>
                     <i class="bi bi-arrow-right-short"></i>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                  <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-bs-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Admin</h6>
-                        <a class="collapse-item" href="views_posts.php">Views</a>
-                      <!--  <a class="collapse-item" href="utilities-border.html">Borders</a>  -->
+                       <a class="collapse-item" href="views_posts.php">Views</a>
+                       <a class="collapse-item" href="utilities-border.html">Borders</a>  
                     </div>
                 </div>
-            </li>
+            </li>  -->       
 
             <!-- Divider -->
             <hr class="sidebar-divider">

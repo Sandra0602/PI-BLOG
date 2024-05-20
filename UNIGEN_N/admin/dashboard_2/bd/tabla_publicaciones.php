@@ -1,5 +1,4 @@
 <?php
-// Importar la conexión PDO desde el archivo de configuración
 require_once 'conexion.php';
 require_once 'modal_editar.php';
 
@@ -9,12 +8,6 @@ $consulta = "SELECT id, contenido, fecha, titulo, Nombre FROM publicaciones";
 $stmt = $pdo->prepare($consulta);
 // Ejecutar la consulta
 $stmt->execute();
-//$result = $stmt->fetchAll();
-//$id_pub = $result[0]["id"];
-//$cont_pub = $result[0]["contenido"];
-//$fech_pub = $result[0]["fecha"];
-//$titu_pub = $result[0]["titulo"];
-//$nom_pub = $result[0]["Nombre"];
 
 // Obtener los resultados
 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -28,7 +21,6 @@ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <table id="tablaPersonas" class="table table-striped table-bordered table-hover">
                     <thead class="text-center">
                         <tr>
-                          <!--  <th>Id</th> -->
                             <th>Contenido</th>
                             <th>Titulo</th>
                             <th>Fecha</th>
@@ -38,18 +30,18 @@ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </thead>
                     <tbody>
                         <?php foreach ($data as $dat) { ?>
-                            <tr>
-                       <!--         <td><?php //echo $dat['id'] ?></td>  -->
+                            <tr data-id="<?php echo $dat['id']; ?>">
                                 <td><?php echo $dat['contenido'] ?></td>
                                 <td><?php echo $dat['titulo'] ?></td>
                                 <td><?php echo $dat['fecha'] ?></td>
                                 <td><?php echo $dat['Nombre'] ?></td>
                                 <td>
                                     <button class="btn btn-primary btnEditar" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                    data-id="<?php echo $dat['id'] ?>">Editar</button>
-                                    <button class="btn btn-danger btnBorrar">Borrar</button>
-
-                                    
+                                        data-id="<?php echo $dat['id'] ?>"
+                                        data-contenido="<?php echo htmlspecialchars($dat['contenido']); ?>"
+                                        data-titulo="<?php echo htmlspecialchars($dat['titulo']); ?>"
+                                        data-nombre="<?php echo htmlspecialchars($dat['Nombre']); ?>">Editar</button>
+                                    <button class="btn btn-danger btnBorrar" data-id="<?php echo $dat['id'] ?>">Borrar</button>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -59,57 +51,57 @@ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 </div>
-<?php require_once "./views/parte_inferior.php"?>
-<!-- Script para actualizar el contenido del modal -->
+<?php require_once "./views/parte_inferior.php" ?>
+
 <script>
-    $('.btnEditar').on('click', function() {
-    var id = $(this).data('id');
-    console.log('ID:', id);
-    // Realiza cualquier acción adicional que necesites con el ID
+    $(document).ready(function () {
+        // Manejar el clic en el botón de borrar
+        $('.btnBorrar').on('click', function () {
+            // Obtener el ID de la publicación a borrar
+            var id = $(this).data('id');
 
-    $('.btnEditar').on('click', function() {
-    var id = $(this).data('id');
-    console.log('ID:', id);
-
-    // Realizar la solicitud AJAX
-    $.ajax({
-        url: '',
-        type: 'POST',
-        data: {id: id},
-        success: function(response) {
-            console.log('Respuesta del servidor:', response);
-            // Realizar cualquier acción adicional con la respuesta del servidor
-        },
-        error: function(xhr, status, error) {
-            console.error('Error en la solicitud AJAX:', error);
-        }
+            // Confirmar si el usuario desea borrar la publicación
+            if (confirm('¿Estás seguro de que deseas borrar esta publicación?')) {
+                // Realizar la solicitud AJAX para borrar la publicación
+                $.ajax({
+                    url: 'borrar_publicacion.php', // Ruta al archivo PHP que procesará la solicitud de borrado
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ id: id }), // Enviar el ID de la publicación a borrar como JSON
+                    success: function (response) {
+                        var res = JSON.parse(response);
+                        alert(res.message);
+                        if (res.success) {
+                            // Remover la fila de la tabla
+                            $('tr[data-id="' + id + '"]').remove();
+                        } else {
+                            console.error('Error:', res.message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error en la solicitud AJAX:', error);
+                    }
+                });
+            }
+        });
     });
-});
 
-});
 
-    /*
-$(document).ready(function(){
-    $('.btnEditar').click(function(){
-        // Obtener los datos de la fila
-        var fila = $(this).closest('tr');
-        var contenido = fila.find('td:eq(1)').text();
-        var titulo = fila.find('td:eq(2)').text();
-        var fecha = fila.find('td:eq(3)').text();
-        var nombre = fila.find('td:eq(4)').text();
-        
-        // Actualizar el contenido del modal
-        $('#exampleModal .modal-body').html(
-            '<p><strong>Contenido:</strong> ' + contenido + '</p>' +
-            '<p><strong>Título:</strong> ' + titulo + '</p>' +
-            '<p><strong>Fecha:</strong> ' + fecha + '</p>' +
-            '<p><strong>Nombre:</strong> ' + nombre + '</p>'
-        );
-    });
-});
-*/
+
+        // Manejar el clic en el botón de editar
+        $('.btnEditar').on('click', function () {
+            var id = $(this).data('id');
+            var contenido = $(this).data('contenido');
+            var titulo = $(this).data('titulo');
+            var nombre = $(this).data('nombre');
+
+            $('#exampleModal #id').val(id);
+            $('#exampleModal #contenido').val(contenido);
+            $('#exampleModal #titulo').val(titulo);
+            $('#exampleModal #nombre').val(nombre);
+        });
+
 </script>
-
 
 
         

@@ -38,7 +38,7 @@
             // Verifica si el usuario está autenticado
             if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"] == null){
             ?>
-                <li><a href="login.php">Iniciar sesión</a></li>
+                <li><a href="login.php">Iniciar sesión/Registrarse</a></li>
             <?php
             } else if (isset($_SESSION["user_admin_comp"]) == 'no'){
             ?>

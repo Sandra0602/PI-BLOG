@@ -37,7 +37,7 @@ if(isset($_POST['registrarse'])){
             <div class="info-childs">
                 <h2>Bienvenido</h2>
                 <p>Para unirte a nuestra comunidad por favor Inicia Sesión con tus 
-                datos</p>
+                datos.</p>
                 <input type="button" value="Iniciar Sesión" id="sign-in">
             </div>
         </div>
@@ -78,7 +78,7 @@ if(isset($_POST['registrarse'])){
         <div class="info-childs">
             <h2>Bienvenido nuevamente!</h2>
             <p>Para unirte a nuestra comunidad por favor Inicia Sesión con tus 
-            datos</p>
+            datos.</p>
             <input type="button" value="Registrarse" id="sign-up">
         </div>
     </div>

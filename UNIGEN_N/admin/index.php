@@ -72,12 +72,12 @@ if (isset($_POST['publicar'])) {
     $stmt->execute([$_POST["titulo"], $_POST["contenido"], date('Y-m-d H:i:s'), $nom_usuario, $imagen]);
 }
 
-if (isset($_POST["borrar"])) {
+/*if (isset($_POST["borrar"])) {
     // Consulta preparada para borrar una publicación
     $sql = "DELETE FROM publicaciones WHERE `id` = ?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$_POST['id']]);
-}
+} */
 ?>
 
 <!DOCTYPE html>
@@ -175,7 +175,7 @@ if (isset($_POST["borrar"])) {
                     <div class="post-row"></div>
                     <form method="post" action="" class="form" enctype="multipart/form-data">
                         <input type="hidden" class="form-control" name="id" value="<?php echo $r["id"]; ?>">
-                        <input type="submit" value="Borrar" name="borrar">
+                    <!--    <input type="submit" value="Borrar" name="borrar">  -->
                         <!--Boton de borrar-->
                     </form>
                 </div>
